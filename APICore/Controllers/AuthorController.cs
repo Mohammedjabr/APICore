@@ -88,5 +88,17 @@ namespace APICore.Controllers
 
             return NoContent();
         }
+
+        [HttpDelete("{AuthorId}")]
+        public IActionResult Delete(int AuthorId)
+        {
+            var CurAuthor = Authors.Where(m => m.AuthorId == AuthorId).SingleOrDefault();
+            if (CurAuthor == null)
+            {
+                return NotFound(new { ErrorCode = 503, ErrorMessage = "Invalid Author Id" });
+            }
+            Authors.Remove(CurAuthor);
+            return NoContent();
+        }
     }
 }
