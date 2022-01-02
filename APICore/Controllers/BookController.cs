@@ -66,6 +66,8 @@ namespace APICore.Controllers
             if (CurBook == null)
                return NotFound("Book Is Not Found!");
 
+           
+
             BookList.Remove(CurBook);
             return NoContent();
         }
