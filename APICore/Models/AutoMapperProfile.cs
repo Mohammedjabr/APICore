@@ -1,4 +1,5 @@
-﻿using APICore.Models.RequestDTO;
+﻿using APICore.Models.Entities;
+using APICore.Models.RequestDTO;
 using APICore.Models.ResponseDTO;
 using AutoMapper;
 using System;
@@ -22,6 +23,10 @@ namespace APICore.Models
 
             CreateMap<Author, AuthorResponseDTO>().
                 ForMember(x => x.BookCount, opt => opt.MapFrom(s => s.Books.Count+1));
+
+            CreateMap<UserAddDTO, Users>().
+                 ForMember(x=>x.UserId, op=>op.MapFrom(s => Guid.NewGuid()));
+
         }
     }
 }

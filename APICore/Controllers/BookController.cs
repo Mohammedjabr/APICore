@@ -40,8 +40,8 @@ namespace APICore.Controllers
         public IActionResult AddBook(int AuthorId, Book newBook)
         {
 
-            if (!AuthorController.Authors.Any(m => m.AuthorId == AuthorId))
-                return NotFound("Author Is Not Exist!");
+            //if (!AuthorController.Authors.Any(m => m.AuthorId == AuthorId))
+            //    return NotFound("Author Is Not Exist!");
 
             if (AuthorId != newBook.AuthorId)
                 return BadRequest("Invalid Author Id");
@@ -59,8 +59,8 @@ namespace APICore.Controllers
         [HttpDelete("{BookId}")]
         public IActionResult DeleteBook(int AuthorId, int BookId)
         {
-            if (!AuthorController.Authors.Any(m => m.AuthorId == AuthorId))
-                return NotFound("Author Is Not Exist!");
+            //if (!AuthorController.Authors.Any(m => m.AuthorId == AuthorId))
+            //    return NotFound("Author Is Not Exist!");
 
             var CurBook = BookList.Where(m => m.AuthorId == AuthorId && m.BookId == BookId).SingleOrDefault();
             if (CurBook == null)

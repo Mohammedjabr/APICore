@@ -14,11 +14,13 @@ namespace APICore.Models
         public int AuthorId { get; set; }
 
         [Required(ErrorMessage = "Invalid Empty Name")]
+        [MaxLength(100)]
         public string AuthorName { get; set; }
 
         [Required]
-        [StringLength(20)]
+        [MaxLength(150)]
         public string Location { get; set; }
+
 
         public bool IsDeleted { get; set; }
 
